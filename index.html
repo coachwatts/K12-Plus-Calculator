@@ -244,7 +244,7 @@ h1{font-size:17px;font-weight:700;color:#111}
   <div>
     <div class="sec">Pricing Settings</div>
     <div class="fg"><label>Rate Card</label>
-      <select id="coopRateCard" onchange="calcCoop()">
+      <select id="coopRateCard" onchange="renderMemberTable();calcCoop()">
         <option value="Floor">Floor</option>
         <option value="Target">Target</option>
         <option value="List" selected>List</option>
@@ -265,7 +265,7 @@ h1{font-size:17px;font-weight:700;color:#111}
       </select>
     </div>
     <div class="fg"><label>Include Mobile</label>
-      <select id="coopMobile" onchange="calcCoop()">
+      <select id="coopMobile" onchange="renderMemberTable();calcCoop()">
         <option value="yes" selected>Yes — include mobile for each school</option>
         <option value="no">No</option>
       </select>
