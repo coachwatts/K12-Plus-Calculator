@@ -1258,28 +1258,7 @@ function showCoopProposal(){
     </div>
   </div>` : ''}
 
-  \${prorateEnabled && getProrateState() ? (()=>{
-    const pr=getProrateState();
-    const startDate=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    const alignDate=pr.dateVal?new Date(pr.dateVal+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'—';
-    return \`<div style="margin-bottom:1.25rem;background:#f5f3ff;border:1px solid #c4b5fd;border-radius:8px;padding:0.9rem 1.1rem">
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6d28d9;margin-bottom:8px">Pro-Rated Initial Term</div>
-    <div style="font-size:12px;color:#374151;line-height:1.8;margin-bottom:8px">
-      Contract starts <strong>\${startDate}</strong> and runs for <strong>\${pr.months} month\${pr.months===1?'':'s'}</strong> to align with the renewal date of <strong>\${alignDate}</strong>. Full annual pricing begins on that date.
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:12px">
-      <thead><tr style="background:#ede9fe"><th style="\${th}">Item</th><th style="\${thr}">Amount</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:7px 10px;border-bottom:1px solid #ede9fe">Pro-Rated SaaS (\${pr.months} of 12 months @ \${fmt(pr.fullArr)}/yr)</td><td style="padding:7px 10px;border-bottom:1px solid #ede9fe;text-align:right;font-weight:700">\${fmt(pr.prorateArr)}</td></tr>
-        \${pr.oneTime>0?\`<tr><td style="padding:7px 10px;border-bottom:1px solid #ede9fe">Implementation &amp; Onboarding (one-time)</td><td style="padding:7px 10px;border-bottom:1px solid #ede9fe;text-align:right;font-weight:700">\${fmt(pr.oneTime)}</td></tr>\`:''}
-      </tbody>
-      <tfoot><tr style="background:#ede9fe"><td style="padding:7px 10px;font-weight:700">Total at Signing</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:#4c1d95;font-size:13px">\${fmt(pr.total)}</td></tr></tfoot>
-    </table>
-    <div style="margin-top:8px;font-size:11px;color:#6d28d9;background:#ede9fe;border-radius:5px;padding:6px 10px">
-      ↻ Renews annually at <strong>\${fmt(pr.fullArr)}/year</strong> beginning \${alignDate}
-    </div>
-  </div>\`;
-  })() : ''}
+  
   <div style="margin-bottom:1.25rem">
     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111;margin-bottom:7px">Recurring Annual Fees</div>
     <table style="width:100%;border-collapse:collapse;font-size:12px">
@@ -1472,28 +1451,7 @@ function showProposal(){
       If ${currentMode==='coop'?'the co-op':'the district'} signs a full annual agreement within <strong>${document.getElementById('pilotWindow').value} days</strong> of pilot start, the full pilot fee will be credited toward Year 1 cost.
     </div>
   </div>` : ''}
-  \${prorateEnabled && getProrateState() ? (()=>{
-    const pr=getProrateState();
-    const startDate=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    const alignDate=pr.dateVal?new Date(pr.dateVal+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'—';
-    return \`<div style="margin-bottom:1.25rem;background:#f5f3ff;border:1px solid #c4b5fd;border-radius:8px;padding:0.9rem 1.1rem">
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#6d28d9;margin-bottom:8px">Pro-Rated Initial Term</div>
-    <div style="font-size:12px;color:#374151;line-height:1.8;margin-bottom:8px">
-      Contract starts <strong>\${startDate}</strong> and runs for <strong>\${pr.months} month\${pr.months===1?'':'s'}</strong> to align with the renewal date of <strong>\${alignDate}</strong>. Full annual pricing begins on that date.
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:12px">
-      <thead><tr style="background:#ede9fe"><th style="\${th}">Item</th><th style="\${thr}">Amount</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:7px 10px;border-bottom:1px solid #ede9fe">Pro-Rated SaaS (\${pr.months} of 12 months @ \${fmt(pr.fullArr)}/yr)</td><td style="padding:7px 10px;border-bottom:1px solid #ede9fe;text-align:right;font-weight:700">\${fmt(pr.prorateArr)}</td></tr>
-        \${pr.oneTime>0?\`<tr><td style="padding:7px 10px;border-bottom:1px solid #ede9fe">Implementation &amp; Onboarding (one-time)</td><td style="padding:7px 10px;border-bottom:1px solid #ede9fe;text-align:right;font-weight:700">\${fmt(pr.oneTime)}</td></tr>\`:''}
-      </tbody>
-      <tfoot><tr style="background:#ede9fe"><td style="padding:7px 10px;font-weight:700">Total at Signing</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:#4c1d95;font-size:13px">\${fmt(pr.total)}</td></tr></tfoot>
-    </table>
-    <div style="margin-top:8px;font-size:11px;color:#6d28d9;background:#ede9fe;border-radius:5px;padding:6px 10px">
-      ↻ Renews annually at <strong>\${fmt(pr.fullArr)}/year</strong> beginning \${alignDate}
-    </div>
-  </div>\`;
-  })() : ''}
+  
   <div style="margin-bottom:1.25rem"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111;margin-bottom:7px">Recurring Annual Fees</div>
   <table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#f9fafb"><th style="${th}">Item</th><th style="${th};text-align:center">Quantity</th><th style="${th}">Billing</th><th style="${thr}">Annual Price</th></tr></thead><tbody>${annR}</tbody><tfoot><tr><td colspan="3" style="padding:7px 10px;border-top:1px solid #e5e7eb;font-weight:700">Annual Total (net)</td><td style="padding:7px 10px;border-top:1px solid #e5e7eb;text-align:right;font-weight:700;color:#1a56db;font-size:13px">${fmt(s.annualTotalNet+_ctD.annual)}</td></tr></tfoot></table></div>
   <div style="margin-bottom:1.25rem"><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111;margin-bottom:7px">One-Time Fees</div>
@@ -3751,20 +3709,7 @@ function buildModelFromDeal(d){
   else { buildDistrictExhibit(d,blocks,H1,H2,P,TBL); }
 
   // Multi-year / renewal
-  if(d.ramp && d.ramp.years && d.ramp.years.length>1){
-    H1("3. Multi-Year / Renewal Schedule (Reference)");
-    P("Provided for budget planning over a "+d.ramp.years.length+"-year horizon"+(d.ramp.enabled?" with a phased ramp":"")+". Amounts reflect annual recurring fees at the quoted net rates; one-time fees apply in Year 1 only."+(function(){var u=(d.uplifts||[]).map(function(x){return parseFloat(x)||0;});if(!u.some(function(x){return x>0;}))return "";var same=u.every(function(x){return x===u[0];});return same?" Renewal years include a "+u[0]+"% annual price uplift (compounding).":" Renewal years apply the per-year uplifts shown in the Uplift column (compounding).";})());
-    var rh=["Contract Year","Uplift","Recurring (Annual)","One-Time","Total"];
-    var rr=d.ramp.years.map(function(y,i){
-      var one=i===0?(d.oneTime||0):0;
-      var up=(i>0&&y.up!=null)?((Math.round(y.up*10)/10)+"%"):"—";
-      return [ "Year "+y.year+(i===d.ramp.years.length-1?" (full)":""), up, m2(y.recur), one?m2(one):"—", m2(y.recur+one) ];
-    });
-    var tcv=d.ramp.years.reduce(function(a,y){return a+y.recur;},0)+(d.oneTime||0);
-    rr.push({tot:true,cells:["Total Contract Value","","","",m2(tcv)]});
-    TBL({kind:"fee",head:rh,rows:rr});
-    P("Renewal beyond the committed term is at K12 Plus’s then-current rates, subject to Section 4.5 (annual increases capped at 5%). The bundle and program discounts reflected above apply to the committed term only.",{italic:true});
-  }
+  buildRenewalBlocks(d,H1,H2,P,TBL,{title:"3. Multi-Year / Renewal Schedule (Reference)",legal:true});
 
   H1("4. Purchase Order Instructions for the District");
   P("Please issue a District purchase order referencing Sales Order No. "+(d.order.soNumber||"[SO-No.]")+".",{li:true});
@@ -3975,8 +3920,8 @@ function buildDocxFromBlocks(blocks){
 
 /* ---- preview HTML ---- */
 var MSA_DOC_CSS='<style>#msaDoc{background:#fff;color:#111;font-family:Georgia,"Times New Roman",serif;font-size:12.5px;line-height:1.5;padding:48px 54px;max-width:820px;margin:0 auto}#msaDoc h1.dt{text-align:center;font-size:17px;margin:0 0 2px}#msaDoc h1.dt.sub{margin-bottom:16px}#msaDoc h2.dh{font-size:13.5px;margin:18px 0 6px;border-bottom:1px solid #ccc;padding-bottom:3px}#msaDoc h3.eh{font-size:14px;margin:22px 0 8px;color:#1F3A5F}#msaDoc p{margin:0 0 8px;text-align:justify}#msaDoc p.li{margin-left:18px}#msaDoc p.center{text-align:center}#msaDoc table.dtbl{border-collapse:collapse;width:100%;margin:10px 0 14px;font-size:11.5px;font-family:Arial,sans-serif}#msaDoc table.dtbl th{background:#1F3A5F;color:#fff;text-align:left;padding:7px 9px;border:1px solid #9aa7b8}#msaDoc table.dtbl td{padding:6px 9px;border:1px solid #c4ccd6;vertical-align:top}#msaDoc table.dtbl td.num{text-align:right;white-space:nowrap}#msaDoc table.dtbl tr.tot td{font-weight:800;background:#eef3f9}#msaDoc table.dtbl tr.disc td{color:#8a1c1c}#msaDoc .sigtbl{width:100%;border-collapse:collapse;margin:8px 0}#msaDoc .sigtbl td{border:1px solid #bbb;padding:12px;width:50%;vertical-align:top;font-family:Arial,sans-serif;font-size:11.5px}</style>';
-function renderBlocksHTML(blocks){
-  var h='<div id="msaDoc">';
+function renderBlocksHTML(blocks,bare){
+  var h=bare?'':'<div id="msaDoc">';
   blocks.forEach(function(b){
     if(b.t==="logo") h+='<div style="text-align:center;margin-bottom:8px"><img src="data:image/png;base64,'+LOGO_B64+'" style="height:50px" alt="K12 Plus"></div>';
     else if(b.t==="h1") h+='<h1 class="dt">'+esc2(b.text)+'</h1>';
@@ -3989,11 +3934,81 @@ function renderBlocksHTML(blocks){
       else { h+='<table class="dtbl">'; if(b.head) h+='<tr>'+b.head.map(function(x){return '<th>'+esc2(x)+'</th>';}).join("")+'</tr>'; b.rows.forEach(function(row){ var cells,cls=""; if(row.tot){cells=row.cells;cls=' class="tot"';}else if(row.disc){cells=row.cells;cls=' class="disc"';}else cells=row; h+='<tr'+cls+'>'+cells.map(function(cell,i){var isNum=i>0&&/^\(?\$/.test(String(cell));return '<td'+(isNum?' class="num"':'')+'>'+esc2(cell)+'</td>';}).join("")+'</tr>'; }); h+='</table>'; }
     }
   });
-  return h+'</div>';
+  return h+(bare?'':'</div>');
 }
 
 /* ---- expose ---- */
-window.MSAGen={districtDeal:districtDeal,coopDeal:coopDeal,buildModelFromDeal:buildModelFromDeal,buildDocxFromBlocks:buildDocxFromBlocks,renderBlocksHTML:renderBlocksHTML,MSA_DOC_CSS:MSA_DOC_CSS};
+/* ---- Proposal (MSA-reflective pricing, no legal language) ---- */
+function buildRenewalBlocks(d,H1,H2,P,TBL,opts){
+  opts=opts||{};
+  if(!(d.ramp && d.ramp.years && d.ramp.years.length>1)) return;
+  H1(opts.title||"Multi-Year Schedule");
+  P("Provided for budget planning over a "+d.ramp.years.length+"-year horizon"+(d.ramp.enabled?" with a phased ramp":"")+". Amounts reflect annual recurring fees at the quoted net rates; one-time fees apply in Year 1 only."+(function(){var u=(d.uplifts||[]).map(function(x){return parseFloat(x)||0;});if(!u.some(function(x){return x>0;}))return "";var same=u.every(function(x){return x===u[0];});return same?" Renewal years include a "+u[0]+"% annual price uplift (compounding).":" Renewal years apply the per-year uplifts shown in the Uplift column (compounding).";})());
+  var rh=["Contract Year","Uplift","Recurring (Annual)","One-Time","Total"];
+  var rr=d.ramp.years.map(function(y,i){ var one=i===0?(d.oneTime||0):0; var up=(i>0&&y.up!=null)?((Math.round(y.up*10)/10)+"%"):"—"; return [ "Year "+y.year+(i===d.ramp.years.length-1?" (full)":""), up, m2(y.recur), one?m2(one):"—", m2(y.recur+one) ]; });
+  var tcv=d.ramp.years.reduce(function(a,y){return a+y.recur;},0)+(d.oneTime||0);
+  rr.push({tot:true,cells:["Total Contract Value","","","",m2(tcv)]});
+  TBL({kind:"fee",head:rh,rows:rr});
+  if(opts.legal) P("Renewal beyond the committed term is at K12 Plus’s then-current rates, subject to Section 4.5 (annual increases capped at 5%). The bundle and program discounts reflected above apply to the committed term only.",{italic:true});
+  else P("Renewal years reflect the annual uplift shown above; the first-year discounts apply to the committed term. Final renewal pricing is confirmed at each renewal.",{italic:true});
+}
+function buildProposalBlocks(d){
+  var blocks=[];
+  var P=function(t,o){blocks.push(Object.assign({t:"p",text:t},o||{}));};
+  var H1=function(t){blocks.push({t:"h1",text:t});};
+  var H2=function(t){blocks.push({t:"h2",text:t});};
+  var TBL=function(o){blocks.push(Object.assign({t:"table"},o));};
+  H1("Products & First-Year Investment");
+  if(d.members) buildCoopExhibit(d,blocks,H1,H2,P,TBL); else buildDistrictExhibit(d,blocks,H1,H2,P,TBL);
+  buildRenewalBlocks(d,H1,H2,P,TBL,{title:"Multi-Year Investment",legal:false});
+  P("This proposal is provided for planning and budgeting purposes and is not a binding agreement; a formal Master Services Agreement with complete terms will follow."+((d.rep&&d.rep.name)?" Your K12 Plus contact: "+d.rep.name+(d.rep.email?" ("+d.rep.email+")":"")+".":""),{italic:true});
+  return blocks;
+}
+function kpiCard(label,val,bg,lc,vc){ return '<div style="background:'+bg+';border:1px solid #e5e7eb;border-radius:10px;padding:12px 14px"><div style="font-size:11px;font-weight:700;color:'+lc+'">'+esc2(label)+'</div><div style="font-size:22px;font-weight:800;color:'+vc+'">'+esc2(val)+'</div></div>'; }
+function renderProposalHTML(d){
+  var buyer=d.buyer||{}, rep=d.rep||{};
+  var pillars=d.members?"IEP / Special Programs":(d.pillars||[]).map(function(p){return p.key==="P504"?"504":p.key;}).join(" · ");
+  var logo=(typeof LOGO_B64!=="undefined")?('<img src="data:image/png;base64,'+LOGO_B64+'" style="height:40px">'):'<div style="font-weight:800;color:#1F3A5F;font-size:18px">K12 Plus</div>';
+  var header='<div style="display:flex;justify-content:space-between;gap:24px;border-bottom:2px solid #1a56db;padding-bottom:14px;margin-bottom:16px">'+
+    '<div><div style="font-size:20px;font-weight:800;color:#111">'+esc2(buyer.name||"District")+'</div>'+
+    '<div style="font-size:12px;color:#555;line-height:1.6;margin-top:4px">'+[buyer.addr1,buyer.cityStateZip,(buyer.attn?"Attn: "+buyer.attn:""),buyer.email,buyer.phone].filter(Boolean).map(esc2).join("<br>")+'</div></div>'+
+    '<div style="text-align:right">'+logo+'<div style="font-size:12px;color:#555;line-height:1.6;margin-top:6px">'+[rep.name,rep.email,"www.k12plus.com"].filter(Boolean).map(esc2).join("<br>")+'</div></div></div>';
+  var chips='<div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">'+
+    '<div style="flex:1;min-width:150px;background:#f7f9fc;border:1px solid #e5e7eb;border-radius:8px;padding:8px 12px"><div style="font-size:10px;letter-spacing:.5px;color:#6b7280;font-weight:700">PILLARS</div><div style="font-weight:700">'+esc2(pillars)+'</div></div>'+
+    '<div style="flex:1;min-width:150px;background:#f7f9fc;border:1px solid #e5e7eb;border-radius:8px;padding:8px 12px"><div style="font-size:10px;letter-spacing:.5px;color:#6b7280;font-weight:700">TERM</div><div style="font-weight:700">'+d.order.termYears+' Year'+(d.order.termYears>1?"s":"")+'</div></div></div>';
+  var y1=d.totals.combinedY1||0, one=d.oneTime||0;
+  var kpis='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">'+
+    kpiCard("Year 1 Recurring (net)",m2(y1-one),"#eff6ff","#3b82f6","#1d4ed8")+
+    kpiCard("One-Time Fees",m2(one),"#f0fdf4","#16a34a","#15803d")+
+    kpiCard("Year 1 Total",m2(y1),"#eef2ff","#4f46e5","#3730a3")+'</div>';
+  return '<div id="msaDoc">'+header+chips+kpis+renderBlocksHTML(buildProposalBlocks(d),true)+'</div>';
+}
+function proposalDeal(mode){
+  var today=new Date(); var od=(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear();
+  function upl(n){var a=[];for(var i=2;i<=n;i++)a.push("5");return a;}
+  if(mode==="coop"){
+    if(!(typeof coopSt!=="undefined"&&coopSt&&coopSt.co)) return null;
+    var CT=window.COOP_T||{start:{m:7,y:today.getFullYear()},ga:{m:7,y:today.getFullYear()}};
+    var yc=parseInt(coopSt.term)||1;
+    return coopDeal({buyer:{name:coopSt.co.name,addr1:gv("cpAddr"),cityStateZip:gv("cpCity"),attn:gv("cpContact"),email:gv("cpEmail"),phone:gv("cpPhone"),taxCert:""},rep:{name:gv("cpRep"),email:gv("cpRepEmail")},governingState:"Texas",soNumber:"",orderDate:od,effDate:"",startMonth:CT.start.m,startYear:CT.start.y,showYears:yc,uplifts:upl(yc),coopStart:CT.start,coopGA:CT.ga});
+  }
+  if(!(typeof st!=="undefined"&&st&&st.rows&&st.rows.length&&currentDistrict)) return null;
+  var RO=window.ROLLOUT||{start:{m:7,y:today.getFullYear()},mobileDiscount:true,pil:{}};
+  var e={m:(RO.start.m+11)%12,y:RO.start.y+((RO.start.m+11)>=12?1:0)};
+  var pil={}; Object.keys(RO.pil).forEach(function(k){var p=RO.pil[k];pil[k]={sm:p.sm,sy:p.sy,em:e.m,ey:e.y,b:p.b};});
+  var yd=parseInt(st.term)||1;
+  return districtDeal({buyer:{name:currentDistrict.name,addr1:gv("pAddr"),cityStateZip:gv("pCity"),attn:gv("pContact"),email:gv("pEmail"),phone:gv("pPhone"),taxCert:""},rep:{name:gv("pRep"),email:gv("pRepEmail")},governingState:"Texas",soNumber:"",orderDate:od,effDate:"",startMonth:RO.start.m,startYear:RO.start.y,mobileDiscount:RO.mobileDiscount,showYears:yd,uplifts:upl(yd),pil:pil});
+}
+function openProposal(){
+  var mode=(typeof currentMode!=="undefined")?currentMode:"district";
+  if(mode!=="district"&&mode!=="coop") return false;
+  var deal=proposalDeal(mode); if(!deal) return false;
+  var html='<html><head><meta charset="utf-8"><title>K12 Plus Proposal — '+esc2((deal.buyer&&deal.buyer.name)||"")+'</title>'+MSA_DOC_CSS+'<style>body{background:#eef1f5;margin:0} #msaDoc{max-width:840px;margin:0 auto 24px;padding:40px 48px;box-shadow:0 4px 24px rgba(20,40,70,.14);border-radius:6px;background:#fff} @media print{body{background:#fff} #msaDoc{box-shadow:none;margin:0} .pbar{display:none}} .pbar{max-width:840px;margin:16px auto 12px;text-align:right}</style></head><body>'+
+    '<div class="pbar"><button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;border-radius:6px;padding:9px 18px;font-weight:700;cursor:pointer">Print / Save PDF</button></div>'+
+    renderProposalHTML(deal)+'</body></html>';
+  var w=window.open("","_blank"); if(!w) return false; w.document.write(html); w.document.close(); w.focus(); return true;
+}
+window.MSAGen={districtDeal:districtDeal,coopDeal:coopDeal,buildModelFromDeal:buildModelFromDeal,buildDocxFromBlocks:buildDocxFromBlocks,renderBlocksHTML:renderBlocksHTML,MSA_DOC_CSS:MSA_DOC_CSS,openProposal:openProposal,renderProposalHTML:renderProposalHTML};
 /* ---- modal UI ---- */
 var MSA_MODAL_CSS='<style>#msaBtn{position:fixed;right:20px;bottom:20px;z-index:9998;background:linear-gradient(100deg,#1F3A5F,#2E5E8C);color:#fff;border:none;border-radius:30px;padding:13px 20px;font:600 14px/1 -apple-system,Segoe UI,Arial,sans-serif;box-shadow:0 6px 20px rgba(20,40,70,.3);cursor:pointer}#msaBtn:hover{filter:brightness(1.08)}#msaOv{position:fixed;inset:0;background:rgba(15,25,40,.55);z-index:9999;display:none}#msaOv.open{display:block}#msaWrap{position:absolute;inset:3% 3%;background:#eef1f5;border-radius:14px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;box-shadow:0 20px 60px rgba(0,0,0,.4)}#msaHd{background:linear-gradient(100deg,#1F3A5F,#2E5E8C);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;font-family:-apple-system,Segoe UI,Arial,sans-serif}#msaHd h3{margin:0;font-size:15px}#msaHd .r{display:flex;gap:8px}#msaHd button{border:none;border-radius:7px;padding:8px 13px;font:600 13px -apple-system,Arial;cursor:pointer}.msaW{background:#fff;color:#1F3A5F}.msaG{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4)!important}#msaBody{display:grid;grid-template-columns:340px 1fr;overflow:hidden}#msaForm{overflow-y:auto;padding:16px;background:#f2f5f9;border-right:1px solid #d5dce6;font-family:-apple-system,Segoe UI,Arial,sans-serif}#msaForm h4{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#5c6a7d;margin:16px 0 8px}#msaForm h4:first-child{margin-top:0}#msaForm label{display:block;font-size:12px;font-weight:600;color:#5c6a7d;margin:0 0 4px}#msaForm input,#msaForm select{width:100%;padding:7px 9px;margin-bottom:9px;border:1px solid #d5dce6;border-radius:6px;font-size:13px;font-family:inherit;background:#fff}#msaForm .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}#msaPrev{overflow-y:auto;background:#dde3ec;padding:20px}.gaP{border:1px solid #d5dce6;border-radius:8px;padding:8px 10px;margin-bottom:8px;background:#fff}.gaP .top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}.gaP input[type=checkbox]{width:auto;margin:0}.gaDate{display:none;margin-top:6px}.gaP.on .gaDate{display:grid;grid-template-columns:1fr 1fr;gap:8px}.msaWarn{background:#fff7e6;border:1px solid #f0d089;color:#8a5a00;padding:16px;border-radius:8px;font-family:-apple-system,Arial;font-size:13px}</style>';
 function moOpts(sel){ var o=""; for(var i=0;i<12;i++) o+='<option value="'+i+'"'+(i==sel?' selected':'')+'>'+MONTHS_ABBR[i]+'</option>'; return o; }
@@ -4109,7 +4124,9 @@ window.MSAGen.openMSA=openMSA;
 /* ---- inject trigger button ---- */
 (function(){ function add(){ if(document.getElementById("msaBtnInline"))return true; var ref=document.querySelector('.ebtn[onclick="routeProposal()"]')||document.querySelector(".ebtn"); if(!ref) return false; var b=document.createElement("button"); b.id="msaBtnInline"; b.className=ref.className||"ebtn"; b.style.background="#1F3A5F"; b.style.marginLeft="6px"; b.innerHTML="\uD83D\uDCC4 Generate MSA"; b.onclick=openMSA; ref.parentNode.insertBefore(b, ref.nextSibling); return true; }
   function tryAdd(n){ if(add()||n<=0) return; setTimeout(function(){tryAdd(n-1);},300); }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",function(){tryAdd(12);}); else tryAdd(12); })();
+  function patchRoute(){ if(typeof window.routeProposal==="function" && !window.routeProposal.__mp){ var _o=window.routeProposal; window.routeProposal=function(){ var m=(typeof currentMode!=="undefined")?currentMode:"district"; if((m==="district"||m==="coop")&&window.MSAGen&&window.MSAGen.openProposal){ try{ if(window.MSAGen.openProposal()!==false) return; }catch(e){} } return _o.apply(this,arguments); }; window.routeProposal.__mp=true; } }
+  function boot(){ tryAdd(12); patchRoute(); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot(); })();
 })();
 
 </script>
